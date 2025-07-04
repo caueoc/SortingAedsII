@@ -1,70 +1,70 @@
 ﻿using Sorting.basic_class.@static;
+using Sorting.basic_static_allocation_structures;
+using Sorting.manager;
+using Sorting.print;
+using Sorting.reader;
+using Sorting.sorting.simple;
+using Sorting.utils;
+using Sorting.enums;
 
 public class Program
 {
     public static void Main(string[] args)
     {
-        // https://github.com/accj1990/Sorting.git
-        // https://pt.overleaf.com/read/kptbxrwtrzch#8b9776
+        
 
-        //int[] vet = ManagerFileReader.Arquivo10TXT();
+        int[] listaNums = [];
+        Sortings alg = Sortings.BUBBLESORT;
+        Console.WriteLine("Escolha qual arquivo será lido:\n1: 10-aleatórios\n2: 100-aleatórios\n3: 1000-aleatórios" +
+            "\n4: 10000-aleatórios\n5: 10000-aleatórios\n6: 100000-aleatórios\n7: 1000000-aleatórios ");
+        int escolha = int.Parse(Console.ReadLine());
+        switch (escolha)
+        {
+            case 1:
+                listaNums = ManagerFileReader.Arquivo10TXT();
+                break;
+            case 2:
+                listaNums= ManagerFileReader.Arquivo100TXT();
+                break;
+            case 3:
+                listaNums = ManagerFileReader.Arquivo1000TXT();
+                break;
+            case 4:
+                listaNums = ManagerFileReader.Arquivo10000TXT();
+                break;
+            case 5:
+                listaNums = ManagerFileReader.Arquivo100000TXT();
+                break;
+            case 6:
+                listaNums = ManagerFileReader.Arquivo1000000TXT();
+                break;
+            case 7:
+                listaNums = ManagerFileReader.Arquivo1000000TXT();
+                break;
+        }
+        Console.WriteLine("Escolha o tipo de ordenação:\n1: bubble\n2: insertion\n3: selection\n4: heap\n5: Merge");
+        escolha = int.Parse(Console.ReadLine());
+        switch (escolha)
+        {
+            case 1:
+                alg = Sortings.BUBBLESORT;
+                break;
+            case 2:
+                alg = Sortings.INSERTIONSORT;
+                break;
+            case 3:
+                alg = Sortings.SELECTIONSORT;
+                break;
+            case 4:
+                alg = Sortings.HEAPSORT;
+                break;
+            case 5:
+                alg = Sortings.MERGESORT;
+                break;
 
-        //PrintSolutionStatic.ImprimirArrayMesmaLinha(vet, Sorting.enums.Sortings.BUBBLESORT);
-
-        //ManagerFileSorting.Ordenar(Sorting.enums.Sortings.BUBBLESORT, vet);
-
-        //PrintSolutionStatic.ImprimirArrayMesmaLinha(vet, Sorting.enums.Sortings.BUBBLESORT);
-
-
-        // Crie um menu que solicite ao usuário qual é o arquivo que será lido e qual algoritmo deverá ser executado
-
-
-
-        // Fila, Pilha e Lista em alocação estática
-       /* Fila f = new Fila(5);
-
-        f.Inserir(1);
-        f.Inserir(2);
-        f.Inserir(3);
-        f.Inserir(4);
-        f.Inserir(5);
-
-        f.Mostrar();
-
-        f.Inserir(6); // não consigo inserir pois a fila está cheia
-
-        f.Remover();
-
-        f.Mostrar();
-
-        f.Inserir(6);
-
-        f.Mostrar();
-
-        f.Remover();
-
-        f.Remover();
-
-        f.Remover();
-
-        f.Mostrar();
-
-        // Pilha
-        Pilha p = new Pilha(5);
-
-        p.Inserir(1);
-        p.Inserir(2);
-        p.Inserir(3);
-        p.Inserir(4);
-        p.Inserir(5);
-
-        p.Mostrar();
-        p.Inserir(6);
-
-        p.Remover();
-        p.Remover();
-
-        p.Mostrar();*/
+        }
+        ManagerFileSorting.Ordenar(alg, listaNums);
+            //PrintSolutionStatic.ImprimirArrayQuebraLinha(ManagerFileSorting.Ordenar(alg, listaNums));
 
     }
 }

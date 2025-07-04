@@ -1,4 +1,6 @@
 ﻿using Sorting.enums;
+using Sorting.print;
+using Sorting.sorting.efficient;
 using Sorting.sorting.simple;
 
 namespace Sorting.manager
@@ -7,7 +9,7 @@ namespace Sorting.manager
     {
         public static void Ordenar(Sortings algoritmo, int[] vet)
         {
-            int[] ordenado;
+            int[] ordenado = [];
 
             switch (algoritmo)
             {
@@ -39,11 +41,14 @@ namespace Sorting.manager
                     break;
 
                 case Sortings.MERGESORT:
+                    ordenado = MergeSort.Sorting(vet, 0, vet.Length - 1);
                     break;
 
                 case Sortings.HEAPSORT:
+                    ordenado = HeapSort.Sorting(vet);
                     break;
             }
+            PrintSolutionStatic.ImprimirArrayQuebraLinha(ordenado);
         }
     }
 }
